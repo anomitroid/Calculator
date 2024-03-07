@@ -124,7 +124,26 @@ one.classList.add ('number');
 zero.classList.add ('number');
 point.classList.add ('number');
 
-
+// Adding key data reference to numbers
+zero.dataset.key = '0';
+one.dataset.key = '1';
+two.dataset.key = '2';
+three.dataset.key = '3';
+four.dataset.key = '4';
+five.dataset.key = '5';
+six.dataset.key = '6';
+seven.dataset.key = '7';
+eight.dataset.key = '8';
+nine.dataset.key = '9';
+point.dataset.key = '.';
+add.dataset.key = '+';
+minus.dataset.key = '-';
+multiply.dataset.key = '*';
+divide.dataset.key = '/';
+equal.dataset.key = 'Enter';
+AC.dataset.key = ' ';
+neg.dataset.key = 'n';
+percent.dataset.key = '%';
 
 // JAVASCRIPT FOR CALCULATOR
 
@@ -134,6 +153,13 @@ let firstInput = null; // this checks if the inputted number is the very first a
 let operatorsInput = 0; // this checks if the last inputted button is an operator or not, if an operator has already been inputted, we cannot input another.
 let newOperation = 0; // this checks if the inputted number is the very first after resetting the calculator
 let firstOperator = 0; // this checks if the operator being inputted is the first operator or multiple operators are being used wihout pressing '='
+
+
+window.addEventListener('keydown', function(e){
+    const key = document.querySelector(`button[data-key = '${e.key}']`);
+    key.click();
+});
+
 
 function showDisplay () {
 	if (displayValue == "80085") display.innerText = "(.)(.)";
@@ -251,7 +277,7 @@ function operate (a, b, op) { // calculates the results
 	if (op == '+') return a + b;
 	else if (op == '-') return a - b;
 	else if (op == '*') return Number.isInteger(a * b) ? a * b : (a * b).toFixed(4);
-	else if (op == '/') return b === 0 ? "BOOBS" : Number.isInteger(a / b) ? a * b : (a / b).toFixed(4);
+	else if (op == '/') return b === 0 ? "gud mar" : Number.isInteger(a / b) ? a * b : (a / b).toFixed(4);
 }
 
 function inputClear () { // resets all variables to intial stage
